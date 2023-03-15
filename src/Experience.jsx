@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CustomObject from './CustomObject'
 
+
 extend({ OrbitControls })
 // extend({ OrbitControls: OrbitControls })
 
@@ -18,10 +19,10 @@ export default function Experience() {
         cubeRef.current.rotation.y += delta
         // groupRef.current.rotation.y += delta
 
-        const angle = state.clock.elapsedTime
-        state.camera.position.x = Math.sin(angle) * 8
-        state.camera.position.z = Math.cos(angle) * 8
-        state.camera.lookAt(0, 0, 0)
+        // const angle = state.clock.elapsedTime
+        // state.camera.position.x = Math.sin(angle) * 8
+        // state.camera.position.z = Math.cos(angle) * 8
+        // state.camera.lookAt(0, 0, 0)
     })
 
     return (
@@ -29,7 +30,7 @@ export default function Experience() {
             <directionalLight position={[1, 2, 3]} intensity={1.5} />
             <ambientLight intensity={0.5} />
 
-            {/* <orbitControls args={[camera, gl.domElement]} /> */}
+            <orbitControls args={[camera, gl.domElement]} />
 
             <group ref={groupRef}>
                 <mesh position-x="-2">
