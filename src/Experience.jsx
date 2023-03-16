@@ -1,6 +1,6 @@
 import { useThree, extend, useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
-import { Text, Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
+import { Float, Text, Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
 
 
 
@@ -39,6 +39,10 @@ export default function Experience() {
 
         {/* <Html>Test</Html> */}
 
+        <Float
+        speed={ 5 }
+        floatIntensity={ 2 }
+        >
         <Text
             fontSize={ 1 }
             color="salmon"
@@ -47,6 +51,7 @@ export default function Experience() {
             textAlign="center"
         >I LOVE R3F
         </Text>
+        </Float>
 
     </>
 }
