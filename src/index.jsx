@@ -4,10 +4,12 @@ import { Canvas } from '@react-three/fiber'
 import Experience from './Experience'
 import { CineonToneMapping } from 'three'
 import * as THREE from 'three'
+import { StrictMode } from 'react'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
+    <StrictMode>
         <Canvas 
             gl={ {
                 antialias: true,
@@ -21,4 +23,5 @@ root.render(
             } }>
             <Experience />
         </Canvas>
+        </StrictMode>
 )
