@@ -1,6 +1,6 @@
 import { useThree, extend, useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
-import { OrbitControls } from '@react-three/drei'
+import { TransformControls, OrbitControls } from '@react-three/drei'
 
 
 
@@ -16,10 +16,12 @@ export default function Experience()
             <meshStandardMaterial color="orange" />
         </mesh>
 
-        <mesh position-x={ 2 } scale={ 1.5 }>
+        <TransformControls position-x={ 2 }>
+        <mesh scale={ 1.5 }>
             <boxGeometry />
             <meshStandardMaterial color="mediumpurple" />
         </mesh>
+        </TransformControls>
 
         <mesh position-y={ - 1 } rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
             <planeGeometry />
