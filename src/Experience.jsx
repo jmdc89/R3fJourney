@@ -6,16 +6,17 @@ import { Html, PivotControls, TransformControls, OrbitControls } from '@react-th
 
 export default function Experience() {
     const cube = useRef()
+    const sphere = useRef()
 
     return <>
         <OrbitControls makeDefault />
         <directionalLight position={[1, 2, 3]} intensity={1.5} />
         <ambientLight intensity={0.5} />
 
-        <mesh position-x={- 2}>
+        <mesh position-x={- 2} ref={sphere}>
             <sphereGeometry />
             <meshStandardMaterial color="orange" />
-            <Html position={ [ 1, 1, 0 ] } wrapperClass="label">That's a sphere 👍</Html>
+            <Html position={ [ 1, 1, 0 ] } wrapperClass="label" center distanceFactor={ 8 } occlude={ [ sphere, cube ] }>That's a sphere 👍</Html>
         </mesh>
 
         <PivotControls anchor={[0, 0, 0]} depthTest={false} lineWidth={4}
