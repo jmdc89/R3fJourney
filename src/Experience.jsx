@@ -1,6 +1,6 @@
 import { useThree, extend, useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
-import { Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
+import { Text, Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
 
 
 
@@ -16,7 +16,7 @@ export default function Experience() {
         <mesh position-x={- 2} ref={sphere}>
             <sphereGeometry />
             <meshStandardMaterial color="orange" />
-            <Html position={ [ 1, 1, 0 ] } wrapperClass="label" center distanceFactor={ 8 } occlude={ [ sphere, cube ] }>That's a sphere 👍</Html>
+            {/* <Html position={ [ 1, 1, 0 ] } wrapperClass="label" center distanceFactor={ 8 } occlude={ [ sphere, cube ] }>That's a sphere 👍</Html> */}
         </mesh>
 
         <PivotControls anchor={[0, 0, 0]} depthTest={false} lineWidth={4}
@@ -37,7 +37,16 @@ export default function Experience() {
             
         </mesh>
 
-        <Html>Test</Html>
+        {/* <Html>Test</Html> */}
+
+        <Text
+            fontSize={ 1 }
+            color="salmon"
+            position-y={ 2 }
+            maxWidth={ 2 }
+            textAlign="center"
+        >I LOVE R3F
+        </Text>
 
     </>
 }
