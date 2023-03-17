@@ -1,14 +1,14 @@
 import { useThree, extend, useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
 import { MeshReflectorMaterial, Float, Text, Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
-import { useControls } from 'leva'
+import { button, useControls } from 'leva'
 
 
 export default function Experience() {
     const cube = useRef()
     const sphere = useRef()
 
-    const { position, color, visible } = useControls({
+    const { position, color, visible } = useControls('sphere', {
         position:
         {
             value: { x: - 2, y: 0 },
@@ -22,7 +22,9 @@ export default function Experience() {
             min: 0,
             max: 10,
             value: [4, 5],
-        }
+        },
+        clickMe: button(() => {console.log('ok')}),
+        choice: { options: [ 'a', 'b', 'c' ] }
     })
 
     return <>
