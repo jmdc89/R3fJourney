@@ -8,15 +8,15 @@ export default function Experience() {
     const cube = useRef()
     const sphere = useRef()
 
-    const { position } = useControls({
+    const { position, color } = useControls({
         position:
         {
             value: { x: - 2, y: 0 },
             step: 0.01,
             joystick: 'invertY'
-        }
+        },
+        color: '#ff0000'
     })
-
 
     return <>
         <OrbitControls makeDefault />
@@ -25,7 +25,7 @@ export default function Experience() {
 
         <mesh position={[position.x, position.y, 0]} ref={sphere}>
             <sphereGeometry />
-            <meshStandardMaterial color="orange" />
+            <meshStandardMaterial color={color} />
         </mesh>
 
 
