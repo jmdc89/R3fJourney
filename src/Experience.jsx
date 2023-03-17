@@ -11,8 +11,9 @@ export default function Experience() {
     const { position } = useControls({
         position:
         {
-            value: { x: - 2, y: 0, z:0 },
-            step: 0.01
+            value: { x: - 2, y: 0 },
+            step: 0.01,
+            joystick: 'invertY'
         }
     })
 
@@ -22,7 +23,7 @@ export default function Experience() {
         <directionalLight position={[1, 2, 3]} intensity={1.5} />
         <ambientLight intensity={0.5} />
 
-        <mesh position={[position.x, position.y, position.z]} ref={sphere}>
+        <mesh position={[position.x, position.y, 0]} ref={sphere}>
             <sphereGeometry />
             <meshStandardMaterial color="orange" />
         </mesh>
