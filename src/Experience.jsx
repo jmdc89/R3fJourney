@@ -27,6 +27,16 @@ export default function Experience() {
         choice: { options: [ 'a', 'b', 'c' ] }
     })
 
+    const { scale } = useControls('cube', {
+        scale:
+        {
+            value: 1.5,
+            step: 0.01,
+            min: 0,
+            max: 5
+        }
+    })
+
     return <>
         <OrbitControls makeDefault />
         <directionalLight position={[1, 2, 3]} intensity={1.5} />
