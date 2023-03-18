@@ -1,17 +1,9 @@
 import { useThree, extend, useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
-import { softShadows, BakeShadows, useHelper, MeshReflectorMaterial, Float, Text, Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
+import { Sky, RandomizedLight, AccumulativeShadows, softShadows, BakeShadows, useHelper, MeshReflectorMaterial, Float, Text, Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
 import { button, useControls } from 'leva'
 import { Perf } from 'r3f-perf'
 import * as THREE from 'three'
-
-softShadows({
-    frustum: 3.75,
-    size: 0.005,
-    near: 9.5,
-    samples: 17,
-    rings: 11
-})
 
 
 export default function Experience() {
@@ -54,6 +46,7 @@ export default function Experience() {
     })
 
     return <>
+        <Sky />
         {/* <BakeShadows /> */}
         {perfVisible && <Perf position="top-left" />}
         <OrbitControls makeDefault />
