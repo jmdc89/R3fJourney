@@ -10,47 +10,46 @@ export default function Experience() {
     const cube = useRef()
     const sphere = useRef()
     const directionalLight = useRef()
-    useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
+    // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
 
-    const { position, color, visible } = useControls('sphere', {
-        position:
-        {
-            value: { x: - 2, y: 0 },
-            step: 0.01,
-            joystick: 'invertY'
-        },
-        color: '#ff0000',
-        visible: true,
-        myInterval:
-        {
-            min: 0,
-            max: 10,
-            value: [4, 5],
-        },
-        clickMe: button(() => { console.log('ok') }),
-        choice: { options: ['a', 'b', 'c'] }
-    })
+    // const { position, color, visible } = useControls('sphere', {
+    //     position:
+    //     {
+    //         value: { x: - 2, y: 0 },
+    //         step: 0.01,
+    //         joystick: 'invertY'
+    //     },
+    //     color: '#ff0000',
+    //     visible: true,
+    //     myInterval:
+    //     {
+    //         min: 0,
+    //         max: 10,
+    //         value: [4, 5],
+    //     },
+    //     clickMe: button(() => { console.log('ok') }),
+    //     choice: { options: ['a', 'b', 'c'] }
+    // })
 
-    const { scale } = useControls('cube', {
-        scale:
-        {
-            value: 1.5,
-            step: 0.01,
-            min: 0,
-            max: 5
-        }
-    })
+    // const { scale } = useControls('cube', {
+    //     scale:
+    //     {
+    //         value: 1.5,
+    //         step: 0.01,
+    //         min: 0,
+    //         max: 5
+    //     }
+    // })
 
-    const { perfVisible } = useControls({
-        perfVisible: true
-    })
+    // const { perfVisible } = useControls({
+    //     perfVisible: true
+    // })
 
     return <>
-        <Sky />
-        {/* <BakeShadows /> */}
-        {perfVisible && <Perf position="top-left" />}
+
+        <Perf position="top-left" />
         <OrbitControls makeDefault />
-        <directionalLight ref={directionalLight} castShadow position={[1, 2, 3]} intensity={1.5}
+        {/* <directionalLight ref={directionalLight} castShadow position={[1, 2, 3]} intensity={1.5}
             shadow-mapSize={[1024, 1024]}
             shadow-camera-near={1}
             shadow-camera-far={10}
@@ -77,6 +76,16 @@ export default function Experience() {
             <planeGeometry />
             <meshStandardMaterial color="green" />
 
+        </mesh> */}
+
+        <mesh castShadow position-y={1} position-x={- 2}>
+            <sphereGeometry />
+            <meshStandardMaterial color="orange" envMapIntensity={envMapIntensity} />
+        </mesh>
+
+        <mesh castShadow ref={cube} position-y={1} position-x={2} scale={1.5}>
+            <boxGeometry />
+            <meshStandardMaterial color="mediumpurple" envMapIntensity={envMapIntensity} />
         </mesh>
 
     </>
