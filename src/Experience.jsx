@@ -48,22 +48,22 @@ export default function Experience() {
     return <>
         { perfVisible && <Perf position="top-left" /> }
         <OrbitControls makeDefault />
-        <directionalLight ref={ directionalLight } position={ [ 1, 2, 3 ] } intensity={ 1.5 } />
+        <directionalLight ref={ directionalLight } castShadow position={ [ 1, 2, 3 ] } intensity={ 1.5 } />
         <ambientLight intensity={0.5} />
 
-        <mesh position={[position.x, position.y, 0]} ref={sphere}>
+        <mesh castShadow position={[position.x, position.y, 0]} ref={sphere}>
             <sphereGeometry />
             <meshStandardMaterial color={color} />
         </mesh>
 
 
-        <mesh ref={cube} position-x={2} scale={1.5}>
+        <mesh castShadow ref={cube} position-x={2} scale={1.5}>
             <boxGeometry />
             <meshStandardMaterial color="mediumpurple" />
         </mesh>
 
 
-        <mesh visible={visible} position-y={- 1} rotation-x={- Math.PI * 0.5} scale={10}>
+        <mesh receiveShadow visible={visible} position-y={- 1} rotation-x={- Math.PI * 0.5} scale={10}>
             <planeGeometry />
             <meshStandardMaterial color="green" />
 

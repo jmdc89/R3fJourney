@@ -13,6 +13,7 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 root.render(
     <StrictMode>
         <Canvas 
+            shadows
             gl={ {
                 antialias: true,
                 toneMapping: THREE.ACESFilmicToneMapping
