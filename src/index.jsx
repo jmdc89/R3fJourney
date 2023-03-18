@@ -6,12 +6,9 @@ import { CineonToneMapping } from 'three'
 import * as THREE from 'three'
 import { StrictMode } from 'react'
 
+
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
-const created = ({ gl }) =>
-{
-    gl.setClearColor('#ff0000', 1)
-}
 
 root.render(
     <StrictMode>
@@ -26,8 +23,8 @@ root.render(
             far: 200, 
             position: [ 3, 2, 6 ] 
             } }
-            onCreated={created}
         >
+            <color args={ [ '#ff0000' ] } attach="background" />
             <Experience />
         </Canvas>
         </StrictMode>
