@@ -24,7 +24,7 @@ root.render(
             position: [ 3, 2, 6 ] 
             } }
         >
-            <color args={ [ '#ff0000' ] } attach="background" />
+            <color args={ [ 'ivory' ] } attach="background" />
             <Experience />
         </Canvas>
         </StrictMode>

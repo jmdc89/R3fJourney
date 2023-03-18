@@ -1,13 +1,16 @@
 import { useThree, extend, useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
-import { MeshReflectorMaterial, Float, Text, Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
+import { useHelper, MeshReflectorMaterial, Float, Text, Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
 import { button, useControls } from 'leva'
 import { Perf } from 'r3f-perf'
+import * as THREE from 'three'
 
 
 export default function Experience() {
     const cube = useRef()
     const sphere = useRef()
+    const directionalLight = useRef()
+    useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
 
     const { position, color, visible } = useControls('sphere', {
         position:
@@ -45,7 +48,7 @@ export default function Experience() {
     return <>
         { perfVisible && <Perf position="top-left" /> }
         <OrbitControls makeDefault />
-        <directionalLight position={[1, 2, 3]} intensity={1.5} />
+        <directionalLight ref={ directionalLight } position={ [ 1, 2, 3 ] } intensity={ 1.5 } />
         <ambientLight intensity={0.5} />
 
         <mesh position={[position.x, position.y, 0]} ref={sphere}>
