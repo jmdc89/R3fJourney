@@ -1,9 +1,17 @@
 import { useThree, extend, useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
-import { useHelper, MeshReflectorMaterial, Float, Text, Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
+import { softShadows, BakeShadows, useHelper, MeshReflectorMaterial, Float, Text, Html, PivotControls, TransformControls, OrbitControls } from '@react-three/drei'
 import { button, useControls } from 'leva'
 import { Perf } from 'r3f-perf'
 import * as THREE from 'three'
+
+softShadows({
+    frustum: 3.75,
+    size: 0.005,
+    near: 9.5,
+    samples: 17,
+    rings: 11
+})
 
 
 export default function Experience() {
@@ -27,8 +35,8 @@ export default function Experience() {
             max: 10,
             value: [4, 5],
         },
-        clickMe: button(() => {console.log('ok')}),
-        choice: { options: [ 'a', 'b', 'c' ] }
+        clickMe: button(() => { console.log('ok') }),
+        choice: { options: ['a', 'b', 'c'] }
     })
 
     const { scale } = useControls('cube', {
@@ -46,9 +54,18 @@ export default function Experience() {
     })
 
     return <>
-        { perfVisible && <Perf position="top-left" /> }
+        {/* <BakeShadows /> */}
+        {perfVisible && <Perf position="top-left" />}
         <OrbitControls makeDefault />
-        <directionalLight ref={ directionalLight } castShadow position={ [ 1, 2, 3 ] } intensity={ 1.5 } />
+        <directionalLight ref={directionalLight} castShadow position={[1, 2, 3]} intensity={1.5}
+            shadow-mapSize={[1024, 1024]}
+            shadow-camera-near={1}
+            shadow-camera-far={10}
+            shadow-camera-top={5}
+            shadow-camera-right={5}
+            shadow-camera-bottom={- 5}
+            shadow-camera-left={- 5}
+        />
         <ambientLight intensity={0.5} />
 
         <mesh castShadow position={[position.x, position.y, 0]} ref={sphere}>
