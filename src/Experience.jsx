@@ -6,6 +6,7 @@ import Placeholder from './Placeholder.jsx'
 import Hamburguer from './Hamburguer.jsx'
 import Fox from './Fox.jsx'
 import Unicorn from './Unicorn.jsx'
+import Boxes from './boxestest.jsx'
 
 export default function Experience() {
 
@@ -22,6 +23,7 @@ export default function Experience() {
             <Hamburguer scale={0.35}/>
             <Fox/>
             {/* <Unicorn /> */}
+            <Boxes />
         </Suspense>
 
         <mesh receiveShadow position-y={- 1} rotation-x={- Math.PI * 0.5} scale={10}>
