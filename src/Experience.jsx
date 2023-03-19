@@ -14,7 +14,9 @@ export default function Experience() {
         <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
         <ambientLight intensity={0.5} />
 
-        <Suspense>
+        <Suspense
+            fallback={ <mesh position-y={ 0.5 } scale={ [ 2, 3, 2 ] }><boxGeometry args={ [ 1, 1, 1, 2, 2, 2 ] } /><meshBasicMaterial wireframe color="red" /></mesh> }
+        >
             <Model />
         </Suspense>
 
