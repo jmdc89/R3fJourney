@@ -6,7 +6,7 @@ export default function Model()
 {
     const model = useLoader(
         GLTFLoader,
-        './FlightHelmet/glTF/FlightHelmet.gltf',
+        './hamburger.glb',
         (loader) =>
         {
             const dracoLoader = new DRACOLoader()
@@ -15,5 +15,5 @@ export default function Model()
         }
     )
 
-    return <primitive object={ model.scene } scale={ 5 } position-y={ - 1 } />
+    return <primitive object={ model.scene } scale={ 0.35 } />
 }
