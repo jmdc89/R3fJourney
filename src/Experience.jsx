@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import Placeholder from './Placeholder.jsx'
 import Hamburguer from './Hamburguer.jsx'
 import Fox from './Fox.jsx'
+import Unicorn from './Unicorn.jsx'
 
 export default function Experience() {
 
@@ -20,6 +21,7 @@ export default function Experience() {
         <Suspense fallback={ <Placeholder position-y={ 0.5 } scale={ [ 2, 3, 2 ] } /> }>
             <Hamburguer scale={0.35}/>
             <Fox/>
+            {/* <Unicorn /> */}
         </Suspense>
 
         <mesh receiveShadow position-y={- 1} rotation-x={- Math.PI * 0.5} scale={10}>
