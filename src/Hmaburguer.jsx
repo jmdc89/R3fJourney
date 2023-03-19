@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF("/hamburger-draco.glb");
+export default function Hamburguer(props) {
+  const { nodes, materials } = useGLTF("./hamburger-draco.glb");
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -36,4 +36,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("/hamburger-draco.glb");
+useGLTF.preload("./hamburger-draco.glb");
