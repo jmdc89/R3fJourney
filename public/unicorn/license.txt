@@ -1,0 +1,11 @@
+Model Information:
+* title:	Unicorn
+* source:	https://sketchfab.com/3d-models/unicorn-e5fdce75c3d14598af512f1637f3736e
+* author:	Mysticreator (https://sketchfab.com/Mysticreator)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Unicorn" (https://sketchfab.com/3d-models/unicorn-e5fdce75c3d14598af512f1637f3736e) by Mysticreator (https://sketchfab.com/Mysticreator) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
