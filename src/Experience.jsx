@@ -1,10 +1,13 @@
 import { useMatcapTexture, Center, Text3D, OrbitControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
+import { useState } from 'react'
 
 export default function Experience() {
 
     const [matcapTexture] = useMatcapTexture('7B5254_E9DCC7_B19986_C8AC91', 256)
     console.log(matcapTexture)
+
+    const [ torusGeometry, setTorusGeometry ] = useState()
 
     return <>
 
@@ -29,9 +32,12 @@ export default function Experience() {
             </Text3D>
         </Center>
 
+        <torusGeometry ref={setTorusGeometry} args={[1, 0.6, 16, 32]} />
+
         {[...Array(100)].map((value,index) =>
             <mesh
                 key={index}
+                geometry={ torusGeometry }
                 position={[
                     (Math.random() - 0.5) * 10,
                     (Math.random() - 0.5) * 10,
@@ -43,8 +49,7 @@ export default function Experience() {
                     Math.random() * Math.PI,
                     0
                 ] }
-            >
-                <torusGeometry args={[1, 0.6, 16, 32]} />
+            >              
                 <meshMatcapMaterial matcap={matcapTexture} />
             </mesh>
         )}
