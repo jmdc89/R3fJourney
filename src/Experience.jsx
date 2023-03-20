@@ -7,7 +7,9 @@ export default function Experience() {
     const [matcapTexture] = useMatcapTexture('7B5254_E9DCC7_B19986_C8AC91', 256)
     console.log(matcapTexture)
 
-    const [ torusGeometry, setTorusGeometry ] = useState()
+    const [torusGeometry, setTorusGeometry] = useState()
+
+    const [material, setMaterial] = useState()
 
     return <>
 
@@ -15,8 +17,12 @@ export default function Experience() {
 
         <OrbitControls makeDefault />
 
+        <torusGeometry ref={setTorusGeometry} args={[1, 0.6, 16, 32]} />
+        <meshMatcapMaterial ref={setMaterial} matcap={matcapTexture} />
+
         <Center>
             <Text3D
+                material={material}
                 font="./fonts/helvetiker_regular.typeface.json"
                 size={0.75}
                 height={0.2}
@@ -32,25 +38,22 @@ export default function Experience() {
             </Text3D>
         </Center>
 
-        <torusGeometry ref={setTorusGeometry} args={[1, 0.6, 16, 32]} />
-
-        {[...Array(100)].map((value,index) =>
+        {[...Array(100)].map((value, index) =>
             <mesh
                 key={index}
-                geometry={ torusGeometry }
+                geometry={torusGeometry}
                 position={[
                     (Math.random() - 0.5) * 10,
                     (Math.random() - 0.5) * 10,
                     (Math.random() - 0.5) * 10
                 ]}
-                scale={ 0.2 + Math.random() * 0.2 }
-                rotation={ [
+                scale={0.2 + Math.random() * 0.2}
+                rotation={[
                     Math.random() * Math.PI,
                     Math.random() * Math.PI,
                     0
-                ] }
-            >              
-                <meshMatcapMaterial matcap={matcapTexture} />
+                ]}
+            >
             </mesh>
         )}
 
