@@ -32,7 +32,7 @@ export default function Experience()
         </Center>
 
         <mesh>
-            <torusGeometry />
+            <torusGeometry args={ [ 1, 0.6, 16, 32 ] } />
             <meshMatcapMaterial matcap={ matcapTexture } />
         </mesh>
 
