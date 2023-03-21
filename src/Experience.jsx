@@ -26,6 +26,10 @@ export default function Experience() {
             <mesh geometry={nodes.poleLightB.geometry} position={nodes.poleLightB.position}>
                 <meshBasicMaterial color="#ffffe5" />
             </mesh>
+
+            <mesh geometry={nodes.portalLight.geometry} position={nodes.portalLight.position} rotation={nodes.portalLight.rotation}>
+                <meshBasicMaterial color="#ffffff" />
+            </mesh>
         </Center>
 
     </>
