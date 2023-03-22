@@ -1,7 +1,6 @@
-import { ContactShadows, PresentationControls, Float, Environment, useGLTF, OrbitControls } from '@react-three/drei'
+import { Html, ContactShadows, PresentationControls, Float, Environment, useGLTF, OrbitControls } from '@react-three/drei'
 
-export default function Experience()
-{
+export default function Experience() {
 
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
 
@@ -10,31 +9,41 @@ export default function Experience()
 
         <Environment preset="city" />
 
-        <color args={ [ '#241a1a' ] } attach="background" />
+        <color args={['#241a1a']} attach="background" />
 
         <PresentationControls
             global
-            rotation={ [ 0.13, 0.1, 0 ] }
-            polar={ [ - 0.4, 0.2 ] }
-            azimuth={ [ - 1, 0.75 ] }
-            config={ { mass: 2, tension: 400 } }
-            snap={ { mass: 4, tension: 400 } }
+            rotation={[0.13, 0.1, 0]}
+            polar={[- 0.4, 0.2]}
+            azimuth={[- 1, 0.75]}
+            config={{ mass: 2, tension: 400 }}
+            snap={{ mass: 4, tension: 400 }}
         >
 
-        <Float rotationIntensity={ 0.4 }>
-        <primitive 
-            object={ computer.scene } 
-            position-y={ - 1.2 }
-            />
-        </Float>
+            <Float rotationIntensity={0.4}>
+                <primitive
+                    object={computer.scene}
+                    position-y={- 1.2}
+                    rotation-x={0.13}
+                />
+                <Html
+                    transform
+                    wrapperClass="htmlScreen"
+                    distanceFactor={ 1.17 }
+                    position={ [ 0, 0.5, - 1.2 ] }
+                    rotation-x={ - 0.15 }
+                >
+                    <iframe src="https://jmdevc.netlify.app/" />
+                </Html>
+            </Float>
 
         </PresentationControls>
 
-        <ContactShadows 
-        position-y={ - 1.4 }
-        opacity={ 0.4 }
-        scale={ 5 }
-        blur={ 2.4 }
+        <ContactShadows
+            position-y={- 1.4}
+            opacity={0.4}
+            scale={5}
+            blur={2.4}
         />
 
     </>

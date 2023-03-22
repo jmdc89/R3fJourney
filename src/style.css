@@ -14,3 +14,12 @@ canvas
 {
     touch-action: none;
 }
+
+.htmlScreen iframe
+{
+    width: 1048px;
+    height: 720px;
+    border: none;
+    border-radius: 20px;
+    background: #000000;
+}
